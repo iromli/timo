@@ -1,0 +1,2 @@
+tinydb==2.4
+tinyrecord==0.1.2
