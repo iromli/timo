@@ -8,6 +8,13 @@ from tinydb import where
 from tinyrecord import transaction
 
 
+def resolve_tablename(maybe_model):
+    tablename = getattr(maybe_model, "__tablename__", None)
+    if tablename is None:
+        tablename = maybe_model
+    return tablename
+
+
 class Database(object):
     def __init__(self, *args, **kwargs):
         self._conn = TinyDB(*args, **kwargs)
@@ -30,9 +37,30 @@ class Database(object):
         """
         return transaction(table)
 
-    def table(self, name, smart_cache=False, **kwargs):
+    def table(self, maybe_model, smart_cache=False, **kwargs):
         """A shortcut to ``tinydb.TinyDB.table`` method.
+
+        A notable difference with the original method is the ability
+        to use plain string name or from model's ``__tablename__``
+        attribute.
+
+        An example of using plain string::
+
+            table = db.table("testing")
+
+        If we have a model::
+
+            from timo.models import BaseModel
+
+            class Testing(BaseModel):
+                __tablename__ = "testing"
+
+            table = db.table(Testing)
+
+        Both approaches return a reference to "testing" table
+        in database.
         """
+        name = resolve_tablename(maybe_model)
         return self._conn.table(name, smart_cache, **kwargs)
 
     def where(self, key):

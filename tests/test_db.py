@@ -26,6 +26,18 @@ def test_database_table(table):
     assert table.__class__.__name__ == "Table"
 
 
+def test_database_table_from_model(db):
+    from timo.models import BaseModel
+
+    class TestModel(BaseModel):
+        __tablename__ = "testing"
+
+    model = TestModel()
+    table = db.table(model)
+    assert table.__class__.__name__ == "Table"
+    assert table.name == "testing"
+
+
 def test_database_transaction(db, table):
     assert db.transaction(table).__class__.__name__ == "transaction"
 
