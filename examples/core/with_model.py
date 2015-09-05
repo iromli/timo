@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 import os
 import tempfile
 import time
+from datetime import datetime
 
 from jsonmodels import fields
 
@@ -19,6 +20,16 @@ class TestingModel(BaseModel):
     name = fields.StringField()
     key = fields.StringField()
     created_at = fields.FloatField()
+
+    # this attribute wont be saved because it's not a field
+    address = "this attribute will not be saved"
+
+    @property
+    def location(self):
+        return "Earth"
+
+    def created_at_datetime(self):
+        return datetime.fromtimestamp(self.created_at).isoformat()
 
 
 def main():
@@ -36,6 +47,17 @@ def main():
         tr.update({"name": "random"}, db.where("key") == model.key)
 
     print(table.all())
+
+    # create model from table's data
+    row = table.get(db.where("key") == "test")
+    new_model = TestingModel(**row)
+
+    print(new_model.name)
+    print(new_model.key)
+    print(new_model.created_at)
+    print(new_model.address)
+    print(new_model.location)
+    print(new_model.created_at_datetime())
 
     # cleanup
     os.unlink(path)
