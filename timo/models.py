@@ -8,12 +8,16 @@ from six import add_metaclass
 
 
 class TablenameMeta(type):
-    def __new__(cls, name, parents, args, **kwargs):
-        if "__tablename__" not in args:
-            args["__tablename__"] = name.lower()
-        return type.__new__(cls, name, parents, args, **kwargs)
+    def __new__(cls, name, parents, attrs):
+        # sets __tablename__ attribute in class;
+        # default to class' lowercased name
+        attrs.setdefault("__tablename__", name.lower())
+        return type.__new__(cls, name, parents, attrs)
 
 
 @add_metaclass(TablenameMeta)
 class BaseModel(jsonmodels.models.Base):
-    pass
+    """A base class for model declaration.
+
+    This class should not be instantiated directly.
+    """

@@ -13,7 +13,7 @@ class Database(object):
         self._conn = TinyDB(*args, **kwargs)
 
     def transaction(self, table):
-        """Create an atomic transaction for the given *table*.
+        """A shortcut to ``tinyrecord.transaction.transaction`` class.
 
         Typical usage::
 
@@ -31,7 +31,11 @@ class Database(object):
         return transaction(table)
 
     def table(self, name, smart_cache=False, **kwargs):
+        """A shortcut to ``tinydb.TinyDB.table`` method.
+        """
         return self._conn.table(name, smart_cache, **kwargs)
 
     def where(self, key):
+        """A shortcut to ``tinydb.where`` method.
+        """
         return where(key)
