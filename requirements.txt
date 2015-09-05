@@ -1,2 +1,4 @@
+six==1.9.0
+jsonmodels==2.0.1
 tinydb==2.4
 tinyrecord==0.1.2
