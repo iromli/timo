@@ -11,10 +11,10 @@ from datetime import datetime
 from jsonmodels import fields
 
 from timo.db import Database
-from timo.models import BaseModel
+from timo.models import Model
 
 
-class TestingModel(BaseModel):
+class TestingModel(Model):
     __tablename__ = "testing"
 
     name = fields.StringField()

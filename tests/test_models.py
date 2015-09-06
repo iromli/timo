@@ -5,9 +5,9 @@ from __future__ import unicode_literals
 
 
 def test_model_without_tablename():
-    from timo.models import BaseModel
+    from timo.models import Model
 
-    class TestModel(BaseModel):
+    class TestModel(Model):
         pass
 
     model = TestModel()
@@ -15,9 +15,9 @@ def test_model_without_tablename():
 
 
 def test_model_with_tablename():
-    from timo.models import BaseModel
+    from timo.models import Model
 
-    class TestModel(BaseModel):
+    class TestModel(Model):
         __tablename__ = "mytable"
 
     model = TestModel()

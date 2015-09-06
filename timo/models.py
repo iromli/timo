@@ -16,7 +16,7 @@ class TablenameMeta(type):
 
 
 @add_metaclass(TablenameMeta)
-class BaseModel(jsonmodels.models.Base):
+class Model(jsonmodels.models.Base):
     """A base class for model declaration.
 
     This class should not be instantiated directly.
