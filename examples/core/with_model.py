@@ -41,10 +41,11 @@ def main():
     model.key = "test"
     model.created_at = time.time()
 
-    table = db.table(model)
+    table = db.table(model.__tablename__)
     with db.transaction(table) as tr:
         tr.insert(model.to_struct())
-        tr.update({"name": "random"}, db.where("key") == model.key)
+        model.name = "random"
+        tr.update(model.to_struct(), db.where("key") == model.key)
 
     print(table.all())
 
