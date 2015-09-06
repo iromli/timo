@@ -67,3 +67,9 @@ class Database(object):
         """A shortcut to ``tinydb.where`` method.
         """
         return where(key)
+
+    def __repr__(self):
+        return "<{}: storage={}>".format(
+            self.__class__.__name__,
+            self._conn._storage.__class__.__name__,
+        )

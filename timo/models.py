@@ -21,3 +21,9 @@ class BaseModel(jsonmodels.models.Base):
 
     This class should not be instantiated directly.
     """
+
+    def __repr__(self):
+        return "<{}: __tablename__={}>".format(
+            self.__class__.__name__,
+            self.__tablename__,
+        )
