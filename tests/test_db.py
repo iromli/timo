@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 
 
 def test_database_init():
-    from timo.db import Database
+    from timo import Database
     from tinydb.storages import MemoryStorage
 
     db = Database(storage=MemoryStorage)

@@ -10,8 +10,8 @@ from datetime import datetime
 
 from jsonmodels import fields
 
-from timo.db import Database
-from timo.models import Model
+from timo import Database
+from timo import Model
 
 
 class TestingModel(Model):

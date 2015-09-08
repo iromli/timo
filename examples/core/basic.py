@@ -7,7 +7,7 @@ import os
 import tempfile
 import time
 
-from timo.db import Database
+from timo import Database
 
 
 def main():

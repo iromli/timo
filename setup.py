@@ -2,6 +2,7 @@
 timo
 ----
 
+A wrapper for TinyDB with additional features (transaction, model, etc).
 """
 import codecs
 import os
