@@ -10,8 +10,8 @@ from datetime import datetime
 
 from jsonmodels import fields
 
-from timo import Database
-from timo import Model
+from tinykit import Database
+from tinykit import Model
 
 
 class TestingModel(Model):

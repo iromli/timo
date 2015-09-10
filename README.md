@@ -1,17 +1,17 @@
-# timo
+# tinykit
 
-A wrapper for TinyDB with additional features (transaction, model, etc).
+A toolkit for TinyDB with additional features (transaction, model, etc).
 
 ## Installation
 
-    pip install timo
+    pip install tinykit
 
 ## Quickstart
 
 Plain Python ``dict``:
 
 ```python
-from timo import Database
+from tinykit import Database
 
 
 db = Database("/path/to/db.json")
@@ -23,12 +23,12 @@ with db.transaction(table) as tr:
 table.get(db.where("label") == "database")
 ```
 
-With ``timo.Model`` object:
+With ``tinykit.Model`` object:
 
 ```python
 from jsonmodels.fields import StringField
-from timo import Database
-from timo import Model
+from tinykit import Database
+from tinykit import Model
 
 
 class TestingModel(Model):

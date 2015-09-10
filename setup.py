@@ -1,8 +1,8 @@
 """
-timo
-----
+tinykit
+-------
 
-A wrapper for TinyDB with additional features (transaction, model, etc).
+A toolkit for TinyDB with additional features (transaction, model, etc).
 """
 import codecs
 import os
@@ -23,9 +23,9 @@ def find_version(*file_paths):
 
 
 setup(
-    name="timo",
-    version=find_version("timo", "__init__.py"),
-    url="http://github.com/iromli/timo",
+    name="tinykit",
+    version=find_version("tinykit", "__init__.py"),
+    url="http://github.com/iromli/tinykit",
     license="MIT",
     author="Isman Firmansyah",
     author_email="isman.firmansyah@gmail.com",

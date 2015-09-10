@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 
 
 def test_model_without_tablename():
-    from timo import Model
+    from tinykit import Model
 
     class TestModel(Model):
         pass
@@ -15,7 +15,7 @@ def test_model_without_tablename():
 
 
 def test_model_with_tablename():
-    from timo import Model
+    from tinykit import Model
 
     class TestModel(Model):
         __tablename__ = "mytable"

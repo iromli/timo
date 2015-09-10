@@ -21,7 +21,7 @@ class Database(object):
 
         table.get(db.where("label") == "database")
 
-    When using a subclass of ``timo.models.Model``::
+    When using a subclass of ``tinykit.models.Model``::
 
         from jsonmodels.fields import StringField
 

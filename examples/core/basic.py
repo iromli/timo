@@ -7,7 +7,7 @@ import os
 import tempfile
 import time
 
-from timo import Database
+from tinykit import Database
 
 
 def main():
