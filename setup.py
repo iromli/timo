@@ -24,7 +24,7 @@ def find_version(*file_paths):
 
 setup(
     name="tinykit",
-    version=find_version("tinykit", "__init__.py"),
+    version=find_version("tinykit", "version.py"),
     url="http://github.com/iromli/tinykit",
     license="MIT",
     author="Isman Firmansyah",
