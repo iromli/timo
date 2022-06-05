@@ -7,7 +7,7 @@ import tinydb
 import tinyrecord
 
 
-class Database(object):
+class Database:
     """A class acts as a wrapper of ``tinydb.TinyDB`` with
     additional features.
 
@@ -66,8 +66,5 @@ class Database(object):
         # for reference.
         self.transaction = tinyrecord.transaction
 
-    def __repr__(self):
-        return "<{}: storage={}>".format(
-            self.__class__.__name__,
-            self._conn._storage.__class__.__name__,
-        )
+    def __repr__(self):  # pragma: no cover
+        return f"<{self.__class__.__name__}: storage={self._conn._storage.__class__.__name__}>"
