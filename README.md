@@ -2,6 +2,11 @@
 
 A toolkit for TinyDB with additional features (transaction, model, etc).
 
+**NOTE**: 
+
+`tinykit` is archived as recent `tinydb` and its extensions provides far more complete tools,
+i.e. model, queries, etc.
+
 ## Installation
 
     pip install tinykit
